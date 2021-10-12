@@ -1,7 +1,8 @@
 // Import Dependencies
 var express = require("express");
 var app = express();
-var apiRoutes = require('./routes/api');
+var gamingRoutes = require('./routes/gamingChannel');
+var sportsRoutes = require('./routes/sportsChannel');
 var morgan = require('morgan');
 
 // Middleware
@@ -14,7 +15,8 @@ app.use(morgan('tiny'));
 app.use(express.json());
 
 // Endpoints (commands)
-app.use('/api', apiRoutes);
+app.use('/gaming', gamingRoutes);
+app.use('/sports', sportsRoutes);
 
 // Serve Out App
 var server = app.listen(3000, function () {
